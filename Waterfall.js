@@ -40,7 +40,7 @@ export default class Waterfall extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#d1fffa',
         alignItems: 'center',
         justifyContent: 'center',
         width: Dimensions.get('screen').width,
