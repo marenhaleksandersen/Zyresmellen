@@ -29,6 +29,7 @@ export default class Waterfall extends React.Component {
          <Image
            source={gifs[this.state.type]}
            style={[styles.buttonImage, this.state.type === 'Drikkevenn' ? styles.drikkevenn : {}]}
+           style={[styles.buttonImage, this.state.type === 'Waterfall' ? styles.drikkevenn : {}]}
            resizeMode={'contain'}
          />
       </TouchableOpacity>
