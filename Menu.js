@@ -45,7 +45,7 @@ export default class Menu extends React.Component {
                 <TouchableOpacity
                     style={styles.backButton}
                     onPress={() => this.props.setState({screen:'Home', difficulty: 'none'})}>
-                    <Text style={styles.backText}> BACK </Text>
+                    <Text style={styles.backText}> HJEM </Text>
                 </TouchableOpacity>
             </View>
          </View>
