@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 30,
+        paddingHorizontal: 30,
     },
     touch: {
         width: Dimensions.get('screen').width,
