@@ -18,7 +18,10 @@ export default class Trykkespill extends React.Component {
       const spill = this.props.game;
       const difficulty = this.props.difficulty;
       const questions = categories[spill][difficulty];
-      const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
+      const randomQuestion = () => {
+          const newQuestion = questions[Math.floor(Math.random() * questions.length )]
+          return newQuestion === this.state.question ? randomQuestion() : newQuestion;
+      };
       
       handlePress = () => {
         if (difficulty === 'Barnehage' && Math.random() < 0.10) {
@@ -53,7 +56,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 30,
-        paddingHorizontal: 30,
     },
     touch: {
         width: Dimensions.get('screen').width,
@@ -67,6 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 40,
+        paddingHorizontal: 30,
     },
     backButton: {
         width: Dimensions.get('screen').width / 1.5,
