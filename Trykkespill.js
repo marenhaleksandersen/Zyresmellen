@@ -7,6 +7,7 @@ export default class Trykkespill extends React.Component {
     super(props)
     if (this.props.currentQuestion) {
         this.state = { question: this.props.currentQuestion }
+        this.props.setState({currentQuestion: undefined})
     } else {
         this.state = { question: 'Klikk for å starte' }
     }
@@ -20,7 +21,7 @@ export default class Trykkespill extends React.Component {
       const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
       
       handlePress = () => {
-        if (difficulty === 'Barnehage' && Math.random() < 0.08) {
+        if (difficulty === 'Barnehage' && Math.random() < 0.15) {
             this.props.setState({ currentQuestion: randomQuestion(), screen: 'Waterfall', difficulty: 'Barnehage'})
         } else {
             this.setState({question: randomQuestion()})
