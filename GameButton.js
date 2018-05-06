@@ -20,12 +20,9 @@ export default class GameButton extends React.Component {
 const styles = StyleSheet.create({
     button: {
         marginTop: 35,
-
-
     },
     buttonText: {
         fontWeight: 'bold',
         fontSize: 20,
-
     },
 });
