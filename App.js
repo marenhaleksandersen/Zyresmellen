@@ -20,7 +20,7 @@ export default class App extends React.Component {
         { this.state.screen === 'Home' && <Home setState={(s) => this.setState(s) } /> }
         { this.state.screen === 'Menu' && <Menu difficulty={this.state.difficulty} setState={s => this.setState(s)} />}
         { this.state.screen === 'Rules' && <Rules gameType={this.state.gameType} setState={s => this.setState(s)} />}
-        { this.state.screen === 'Play' && trykkeSpill.indexOf(this.state.game) >= 0 && <Trykkespill game={this.state.game} /> }
+        { this.state.screen === 'Play' && trykkeSpill.indexOf(this.state.game) >= 0 && <Trykkespill game={this.state.game} difficulty={this.state.difficulty} /> }
       </View>
     );
   }

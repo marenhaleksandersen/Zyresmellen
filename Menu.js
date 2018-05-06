@@ -4,10 +4,10 @@ import GameButton from './GameButton';
 
 export default class Menu extends React.Component {
   render() {
-    const difficulty = this.props.difficulty;
-    const bhg = (difficulty === 'Barnehage')  //true/false
-    const boozed = (difficulty === 'Boozed')  //true/false
-    const brisen = (difficulty === 'Brisen')  //true/false
+    const diff = this.props.difficulty;
+    const bhg = (diff === 'Barnehage')  //true/false
+    const boozed = (diff === 'Boozed')  //true/false
+    const brisen = (diff === 'Brisen')  //true/false
 
     return (
       <ScrollView>
@@ -30,14 +30,14 @@ export default class Menu extends React.Component {
                resizeMode={'contain'}
            />}
 
-             { bhg && <GameButton game='Syresmellen' setState={this.props.setState}> 🍻 Syresmellen </GameButton> }
-             <GameButton game='Jeg har aldri' setState={this.props.setState}> 🎉 Jeg har aldri </GameButton>
-             <GameButton game='Rygg til rygg' setState={this.props.setState}> 👯 Rygg til rygg</GameButton>
-             <GameButton game='Pekeleken' setState={this.props.setState}> 👉🏼 Pekeleken</GameButton>
-             <GameButton game='Flasketuten peker på' setState={this.props.setState}> 🍾 Flasketuten peker på </GameButton>
-             <GameButton game='Gummihatt' setState={this.props.setState}> 🎶 Gummihatt </GameButton>
-             <GameButton game='Salty Dog' setState={this.props.setState}> 🎶 Salty Dog </GameButton>
-             <GameButton game='Mate' setState={this.props.setState}> 🎶 Mate </GameButton>
+             { bhg && <GameButton game='Syresmellen' setState={this.props.setState} difficulty={diff}> 🍻 Syresmellen </GameButton> }
+             <GameButton game='Jeg har aldri' setState={this.props.setState} difficulty={diff}> 🎉 Jeg har aldri </GameButton>
+             <GameButton game='Rygg til rygg' setState={this.props.setState} difficulty={diff}> 👯 Rygg til rygg</GameButton>
+             <GameButton game='Pekeleken' setState={this.props.setState} difficulty={diff}> 👉🏼 Pekeleken</GameButton>
+             <GameButton game='Flasketuten peker på' setState={this.props.setState} difficulty={diff}> 🍾 Flasketuten peker på </GameButton>
+             <GameButton game='Gummihatt' setState={this.props.setState} difficulty={diff}> 🎶 Gummihatt </GameButton>
+             <GameButton game='Salty Dog' setState={this.props.setState} difficulty={diff}> 🎶 Salty Dog </GameButton>
+             <GameButton game='Mate' setState={this.props.setState} difficulty={diff}> 🎶 Mate </GameButton>
 
 
             //Back button

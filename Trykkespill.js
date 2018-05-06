@@ -5,19 +5,20 @@ export default class Trykkespill extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { question: 'Hei' /*questions[Math.floor(Math.random() * questions.length )]*/ }
+    this.state = { question: 'Klikk for å starte' }
   }
 
   render() {
     const spill = this.props.game;
-    const questions = categories[spill];
+    const difficulty = this.props.difficulty;
+    const questions = categories[spill][difficulty];
     const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
 
     return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.touch}
                               onPress={() => this.setState({question: randomQuestion()})}>
-                <Text> { this.state.question } </Text>
+                <Text style={styles.questionText}> { this.state.question } </Text>
             </TouchableOpacity>
         </View>
     );
@@ -39,6 +40,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    questionText: {
+        /* styling for spørsmålteksten */
     }
 });
 
