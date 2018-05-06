@@ -18,17 +18,17 @@ export default class Waterfall extends React.Component {
     }
 
     const gifs = {
-        'Waterfall': require('./img/WATERFALL.gif'),
-        'Shots': require('./img/SHOTS.gif'),
-        'Regel': require('./img/REGEL.gif'),
-        'Drikkevenn': require('./img/DRIKKEVENN.gif'),
+        'Waterfall': {src: require('./img/WATERFALL.gif'), style: styles.waterfall},
+        'Shots': {src: require('./img/SHOTS.gif'), style: styles.shots},
+        'Regel': {src: require('./img/REGEL.gif'), style: styles.regel},
+        'Drikkevenn': {src: require('./img/DRIKKEVENN.gif'), style: styles.drikkevenn},
     }
 
     return (
       <TouchableOpacity style={styles.container} onPress={() => handlePress()}>
          <Image
-           source={gifs[this.state.type]}
-           style={[styles.buttonImage, this.state.type === 'Drikkevenn' ? styles.drikkevenn : {}]}
+           source={gifs[this.state.type].src}
+           style={[styles.buttonImage, gifs[this.state.type].style]}
            resizeMode={'contain'}
          />
       </TouchableOpacity>
@@ -48,6 +48,14 @@ const styles = StyleSheet.create({
     },
     drikkevenn: {
         width: Dimensions.get('screen').width * 0.8,
+    }, 
+    waterfall: {
+      width: Dimensions.get('screen').width * 1,
+    }, 
+    shots: {
+      width: Dimensions.get('screen').width * 1,
+    },
+    regel: {
+      width: Dimensions.get('screen').width * 1,
     }
-
 });
