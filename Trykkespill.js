@@ -21,7 +21,7 @@ export default class Trykkespill extends React.Component {
       const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
       
       handlePress = () => {
-        if (difficulty === 'Barnehage' && Math.random() < 0.15) {
+        if (difficulty === 'Barnehage' && Math.random() < 0.10) {
             this.props.setState({ currentQuestion: randomQuestion(), screen: 'Waterfall', difficulty: 'Barnehage'})
         } else {
             this.setState({question: randomQuestion()})

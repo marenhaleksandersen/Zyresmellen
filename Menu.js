@@ -34,7 +34,7 @@ export default class Menu extends React.Component {
              <GameButton game='Jeg har aldri' setState={this.props.setState} difficulty={diff}> 🎉 Jeg har aldri </GameButton>
              <GameButton game='Rygg til rygg' setState={this.props.setState} difficulty={diff}> 👯 Rygg til rygg</GameButton>
              <GameButton game='Pekeleken' setState={this.props.setState} difficulty={diff}> 👉🏼 Pekeleken</GameButton>
-             <GameButton game='Flasketuten peker på' setState={this.props.setState} difficulty={diff}> 🍾 Flasketuten peker på </GameButton>
+             <GameButton game='Flasketuten' setState={this.props.setState} difficulty={diff}> 🍾 Flasketuten peker på </GameButton>
              <GameButton game='Gummihatt' setState={this.props.setState} difficulty={diff}> 🎶 Gummihatt </GameButton>
              <GameButton game='Salty Dog' setState={this.props.setState} difficulty={diff}> 🎶 Salty Dog </GameButton>
              <GameButton game='Mate' setState={this.props.setState} difficulty={diff}> 🎶 Mate </GameButton>

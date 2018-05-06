@@ -5,11 +5,39 @@ export default class Waterfall extends React.Component {
 
   constructor(props) {
     super(props)
+    const sound = require('./assets/LangAlarm.mp3');
     if (Math.random() < 0.5) {
-      this.state = { type: Math.random() < 0.5 ? 'Waterfall' : 'Shots'};
+      this.state = { type: Math.random() < 0.5 ? 'Waterfall' : 'Shots', soundObject: new Expo.Audio.Sound(), playing: false, src: sound};
     } else {
-      this.state = { type: Math.random() < 0.5 ? 'Regel' : 'Drikkevenn'};
+      this.state = { type: Math.random() < 0.5 ? 'Regel' : 'Drikkevenn', soundObject: new Expo.Audio.Sound(), playing: false, src: sound};
     }
+  }
+
+  componentDidMount() {
+    this.playSound();
+  }
+
+  componentWillUnmount() {
+    this.stopSound();
+  }
+
+  playSound = async () => {
+    if (this.state.playing) return;
+    try {
+        const soundObject = this.state.soundObject;
+        this.setState({ playing: true });
+        await soundObject.loadAsync(this.state.src);
+        await soundObject.playAsync();
+    } catch (err) {
+        //Error
+    }
+  }
+
+  stopSound = async () => {
+      if (!this.state.playing) return;
+      this.setState({playing: false});
+      this.state.soundObject.stopAsync();
+      this.state.soundObject.unloadAsync();
   }
 
   render() {
