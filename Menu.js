@@ -39,8 +39,6 @@ export default class Menu extends React.Component {
              <GameButton game='Salty Dog' setState={this.props.setState} difficulty={diff}> 🎶 Salty Dog </GameButton>
              <GameButton game='Mate' setState={this.props.setState} difficulty={diff}> 🎶 Mate </GameButton>
 
-
-            //Back button
             <View style={styles.bottomButtonsContainer}>
                 <TouchableOpacity
                     style={styles.backButton}

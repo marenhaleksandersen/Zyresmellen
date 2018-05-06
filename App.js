@@ -24,10 +24,10 @@ export default class App extends React.Component {
         { this.state.screen === 'Home' && <Home setState={(s) => this.setState(s) } /> }
         { this.state.screen === 'Menu' && <Menu difficulty={this.state.difficulty} setState={s => this.setState(s)} />}
         { this.state.screen === 'Rules' && <Rules gameType={this.state.gameType} setState={s => this.setState(s)} />}
-        { this.state.screen === 'Play' && trykkeSpill.indexOf(this.state.game) >= 0 && <Trykkespill game={this.state.game} difficulty={this.state.difficulty} /> }
+        { this.state.screen === 'Play' && trykkeSpill.indexOf(this.state.game) >= 0 && <Trykkespill setState={s => this.setState(s)} game={this.state.game} difficulty={this.state.difficulty} currentQuestion={this.state.currentQuestion}/> }
         { this.state.screen === 'Play' && musikkSpill.indexOf(this.state.game) >= 0 && <SoundGame setState={s => this.setState(s)} game={this.state.game} /> }
-        { this.state.screen === 'Alarm' && <Alarm /> }
-        { this.state.screen === 'Waterfall' && <Waterfall /> }
+        { this.state.screen === 'Alarm' && <Alarm setState={s => this.setState(s)}/> }
+        { this.state.screen === 'Waterfall' && <Waterfall setState={s => this.setState(s)}/> }
       </View>
     );
   }

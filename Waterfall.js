@@ -1,11 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image, TouchableOpacity } from 'react-native';
 
 export default class Waterfall extends React.Component {
 
+  constructor(props) {
+    super(props)
+    if (Math.random() < 0.5) {
+      this.state = { type: Math.random() < 0.5 ? 'Waterfall' : 'Shots'};
+    } else {
+      this.state = { type: Math.random() < 0.5 ? 'Regel' : 'Drikkevenn'};
+    }
+  }
 
   render() {
-    const type = 'Shots';  //Endre denne for å endre gif
+    const handlePress = () => {
+      this.props.setState({screen:'Play'});
+    }
+
     const gifs = {
         'Waterfall': require('./img/WATERFALL.gif'),
         'Shots': require('./img/SHOTS.gif'),
@@ -14,13 +25,13 @@ export default class Waterfall extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={() => handlePress()}>
          <Image
-           source={gifs[type]}
-           style={[styles.buttonImage, type === 'Drikkevenn' ? styles.drikkevenn : {}]}
+           source={gifs[this.state.type]}
+           style={[styles.buttonImage, this.state.type === 'Drikkevenn' ? styles.drikkevenn : {}]}
            resizeMode={'contain'}
          />
-      </View>
+      </TouchableOpacity>
     );
   }
 }

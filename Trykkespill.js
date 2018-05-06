@@ -5,20 +5,39 @@ export default class Trykkespill extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { question: 'Klikk for å starte' }
+    if (this.props.currentQuestion) {
+        this.state = { question: this.props.currentQuestion }
+    } else {
+        this.state = { question: 'Klikk for å starte' }
+    }
   }
 
+  
   render() {
-    const spill = this.props.game;
-    const difficulty = this.props.difficulty;
-    const questions = categories[spill][difficulty];
-    const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
+      const spill = this.props.game;
+      const difficulty = this.props.difficulty;
+      const questions = categories[spill][difficulty];
+      const randomQuestion = () => questions[Math.floor(Math.random() * questions.length )];
+      
+      handlePress = () => {
+        if (difficulty === 'Barnehage' && Math.random() < 0.05) {
+            this.props.setState({ currentQuestion: randomQuestion(), screen: 'Waterfall', difficulty: 'Barnehage'})
+        } else {
+            this.setState({question: randomQuestion()})
+        }
+      }
 
-    return (
+      return (
         <View style={styles.container}>
             <TouchableOpacity style={styles.touch}
-                              onPress={() => this.setState({question: randomQuestion()})}>
+                              onPress={() => handlePress()}>
                 <Text style={styles.questionText}> { this.state.question } </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+                style={styles.backButton}
+                onPress={() => this.props.setState({screen:'Home', difficulty: 'none'})}>
+                <Text style={styles.backText}> HJEM </Text>
             </TouchableOpacity>
         </View>
     );
@@ -46,7 +65,21 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
         lineHeight: 40,
-    }
+    },
+    backButton: {
+        width: Dimensions.get('screen').width / 1.5,
+        height: 40,
+        backgroundColor: '#FFFFFF',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+        marginBottom: 20,
+    },
+    backText: {
+        fontWeight: 'bold',
+        fontSize: 15,
+    },
 });
 
 const categories = {

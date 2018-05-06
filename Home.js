@@ -13,7 +13,7 @@ export default class Home extends React.Component {
 
         <TouchableOpacity
             style={styles.buttonBackground}
-            onPress={() => this.props.setState({screen:'Menu', difficulty: 'Barnehage'})}
+            onPress={() => this.props.setState({screen:'Alarm', difficulty: 'Barnehage'})}
             >
             <Image
                 source={require('./img/BARNEHAGE.png')}
